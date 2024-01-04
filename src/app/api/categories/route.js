@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import data from '../mockData'
+import data from '../../../../data/mockData'
 
 export const GET = () => {
 

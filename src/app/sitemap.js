@@ -1,4 +1,4 @@
-import mockData from "./api/mockData";
+import mockData from "../../data/mockData";
 const categoryData = ['Bulbs','Leaves','Roots','Flowers','Fruits','Legumes']
 const baseUrl = process.env.BASEURL;
 

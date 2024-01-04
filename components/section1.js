@@ -1,12 +1,19 @@
 import SwiperView from "./swiper";
 
-async function Section1({data}) {
-
+async function getData() {
+  let json = []
   let resultData = []
 
-  if (data) {
-    for (let x = 0; x < 3; x++) {
-     let aux = data[Math.floor(Math.random() * data.length)];
+  try {
+
+    const data = await fetch(process.env.BASE_URL + "/api/categories", {
+      cache: "no-cache",
+    })
+    json = await data.json()
+
+    if (json) {
+    for (let x = 0; x < 6; x++) {
+     let aux = json[Math.floor(Math.random() * json.length)];
       if(resultData.length == 0 ){
          resultData.push(aux);       
          }
@@ -17,10 +24,20 @@ async function Section1({data}) {
         }
     }
   } 
+    
+  } catch (error) {
+    return resultData
+  }
+  return resultData
+}
+
+async function Section1() {
+
+  let result = await getData()
 
   return (
     <div>
-      <SwiperView data={resultData}/>
+      <SwiperView data={result}/>
     </div>
   );
 }

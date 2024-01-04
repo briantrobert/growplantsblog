@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import mockData from "../../mockData";
+import mockData from "../../../../../data/mockData";
 
 export const GET = (request, {params}) => {
     const large = params.slug.length

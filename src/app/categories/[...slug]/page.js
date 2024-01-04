@@ -5,51 +5,51 @@ import Error from "@/components/ui/error"
 import Spinner from "@/components/ui/spinner"
 import Format from "@/layout/format"
 
-export async function generateMetadata({params}){
+// async function generateMetadata({params}){
 
-  try {
-    const { data } = await getCategories('/categories/',params.slug)
+//   try {
+//     const { data } = await getCategories('/categories/',params.slug)
 
-    if(!data){
-         return {
-          title:"Not Found",
-          description:"The page are you looking do not exist",
-         }
-    }else if(data.length == 1) {
-      return {
-        title: data.type,
-        description: data.seo2,
-        alternates: {
-          canonical: `/categories/${data.categories}/${data.type}`,  //aqui va la direccion final de despliegue de nuestra aplicacion
-          languages: {                       //en caso de tener varios lenguajes en la app
-            'en-US': `/en-US/categories/${data.categories}/${data.type}`,
-            'es-Es': `/es-Es/categories/${data.categories}/${data.type}`,
-          },
-        },
-       }
-    }else{
-        return {
-          title: data.categories,
-          description: data.seo2,
-          alternates: {
-            canonical: `/categories/${data.categories}`,  //aqui va la direccion final de despliegue de nuestra aplicacion
-            languages: {                       //en caso de tener varios lenguajes en la app
-              'en-US': `/en-US/categories/${data.categories}`,
-              'es-Es': `/es-Es/categories/${data.categories}`,
-            },
-          },
-         }
-    }
+//     if(!data){
+//          return {
+//           title:"Not Found",
+//           description:"The page are you looking do not exist",
+//          }
+//     }else if(data.length == 1) {
+//       return {
+//         title: data.type,
+//         description: data.seo2,
+//         alternates: {
+//           canonical: `/categories/${data.categories}/${data.type}`,  //aqui va la direccion final de despliegue de nuestra aplicacion
+//           languages: {                       //en caso de tener varios lenguajes en la app
+//             'en-US': `/en-US/categories/${data.categories}/${data.type}`,
+//             'es-Es': `/es-Es/categories/${data.categories}/${data.type}`,
+//           },
+//         },
+//        }
+//     }else{
+//         return {
+//           title: data.categories,
+//           description: data.seo2,
+//           alternates: {
+//             canonical: `/categories/${data.categories}`,  //aqui va la direccion final de despliegue de nuestra aplicacion
+//             languages: {                       //en caso de tener varios lenguajes en la app
+//               'en-US': `/en-US/categories/${data.categories}`,
+//               'es-Es': `/es-Es/categories/${data.categories}`,
+//             },
+//           },
+//          }
+//     }
 
    
 
-  } catch (error) {
-    return {
-      title:"Not Found",
-      description:"The page are you looking do not exist",
-     }
-  }
-}
+//   } catch (error) {
+//     return {
+//       title:"Not Found",
+//       description:"The page are you looking do not exist",
+//      }
+//   }
+// }
 
 export default async function Page({params}){
 

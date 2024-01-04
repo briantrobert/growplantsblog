@@ -1,5 +1,5 @@
 
-const baseUrl = process.env.BASEURL;
+const baseUrl = process.env.BASE_URL;
 
 export default async function getCategories(url, slug) {
 
@@ -8,7 +8,7 @@ export default async function getCategories(url, slug) {
 
   if(slug){
     if (slug.length == 1) {
-      res = await fetch(`${baseUrl}${url}/${slug[0]}`)
+      res = await fetch(`${baseUrl}/api/${url}${slug[0]}`)
       data = await res.json()
   
       if (!res.ok) {
@@ -22,7 +22,7 @@ export default async function getCategories(url, slug) {
     }
   
     if (slug.length == 2) {
-      res = await fetch(`${baseUrl}${url}/${slug[0]}/${slug[1]}`)
+      res = await fetch(`${baseUrl}/api/${url}${slug[0]}/${slug[1]}`)
       data = await res.json()
   
       if (!res.ok) {
