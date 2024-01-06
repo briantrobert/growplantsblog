@@ -1,4 +1,4 @@
-import { Head, Html }from 'next/document'
+import Head from 'next/head'
 import './globals.css'
 
 export const metadata = {
@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <Html lang="en">
+    <html lang="en">
       <Head>
       <script async 
         src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADS_CLIENT_ID}`}
@@ -22,6 +22,6 @@ export default function RootLayout({ children }) {
       <body>
         {children}
       </body>
-    </Html>
+    </html>
   )
 }
