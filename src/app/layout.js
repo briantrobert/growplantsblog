@@ -15,15 +15,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
+      </body>
         <Script 
           id="Adsense-id"
           async
           data-ad-client={`${process.env.GOOGLE_ADS_CLIENT_ID}`}
+          strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          strategy="lazyOnload"
           crossorigin="anonymous">
         </Script>
-      </body>
     </html>
   )
 }
