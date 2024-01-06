@@ -1,9 +1,9 @@
-import Head from 'next/head'
 import './globals.css'
+import Script from 'next/script'
 
 export const metadata = {
   metadataBase: new URL(`${process.env.BASE_URL}`), // aqui se define la direccion canonica de la pagina para el SEO, es la direccion final de despliegue
-  title:{
+  title: {
     default: 'Grow your plants',
     template: `%s | Grow your plants`,
   },
@@ -13,14 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-      <script async 
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GOOGLE_ADS_CLIENT_ID}`}
-        strategy="lazyOnload"
-        crossorigin="anonymous"></script>
-      </Head>
       <body>
         {children}
+        <Script 
+          id="Adsense-id"
+          async
+          data-ad-client={`${process.env.GOOGLE_ADS_CLIENT_ID}`}
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          strategy="lazyOnload"
+          crossorigin="anonymous">
+        </Script>
       </body>
     </html>
   )
